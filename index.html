@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EProfile</title>
+<meta name="description" content="Plataforma de perfiles profesionales para estudiantes de Ingeniería en Sistemas y Negocios Digitales.">
+<link rel="stylesheet" href="/assets/css/estilos.css">
+</head>
+<body>
+
+<header class="barra" id="barra"></header>
+
+<main class="principal">
+  <div class="envoltura">
+
+    <section class="portada">
+      <h1>Perfiles profesionales de estudiantes</h1>
+      <p>
+        EProfile es la plataforma donde cada estudiante mantiene su perfil profesional en una
+        dirección propia y permanente. Desde ahí cualquier persona puede consultar su formación,
+        su experiencia y sus proyectos, descargar el CV en PDF o guardar sus datos de contacto.
+      </p>
+
+      <div class="pasos">
+        <div class="paso">
+          <div class="paso__numero">01</div>
+          <h3>Una dirección fija</h3>
+          <p>Cada perfil vive en una dirección que no cambia, aunque la información se actualice.</p>
+        </div>
+        <div class="paso">
+          <div class="paso__numero">02</div>
+          <h3>Edición con borradores</h3>
+          <p>Los cambios se guardan como borrador y solo aparecen en público al publicarlos.</p>
+        </div>
+        <div class="paso">
+          <div class="paso__numero">03</div>
+          <h3>CV, QR y contacto</h3>
+          <p>El CV en PDF, el código QR y la tarjeta de contacto salen de la misma información.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <h2 class="etiqueta-seccion">Perfiles publicados</h2>
+      <div id="directorio" class="directorio">
+        <p class="cargando">Cargando perfiles…</p>
+      </div>
+    </section>
+
+    <section class="seccion">
+      <div class="tarjeta">
+        <div class="tarjeta__titulo"><h2>Buscar un perfil</h2></div>
+        <p style="color:var(--tinta-media);margin-bottom:14px">
+          Si conoces la dirección de un perfil, escríbela para abrirlo directamente.
+        </p>
+        <form id="forma-buscar" style="display:flex;gap:10px;flex-wrap:wrap">
+          <input type="search" id="campo-buscar" placeholder="fernanda" aria-label="Dirección del perfil" style="flex:1;min-width:200px">
+          <button class="boton boton--primario" type="submit">Abrir perfil</button>
+        </form>
+        <div id="aviso-buscar" hidden style="margin-top:14px"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="envoltura">
+    EProfile — proyecto de la asignatura de Nuevas Tecnologías.
+    <a href="/entrar">Acceso para estudiantes y administración</a>
+  </div>
+</footer>
+
+<script src="/assets/js/comun.js"></script>
+<script src="/assets/js/inicio.js"></script>
+</body>
+</html>

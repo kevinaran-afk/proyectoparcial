@@ -1,0 +1,72 @@
+# =============================================================================
+# EProfile — configuración de Netlify
+# Las reglas se evalúan en orden: la primera que coincide gana.
+# Los archivos que existen de verdad (assets, .html) se sirven antes que las
+# reglas de reescritura, así que la regla final /:slug no los intercepta.
+# =============================================================================
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# --- API ---------------------------------------------------------------------
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/api/:splat"
+  status = 200
+  force = true
+
+# --- Código fuente fuera del alcance del navegador ---------------------------
+# En un deploy manual la carpeta de funciones viaja dentro del directorio
+# publicado, así que se bloquea su acceso directo por HTTP.
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/netlify.toml"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# --- Páginas fijas -----------------------------------------------------------
+[[redirects]]
+  from = "/entrar"
+  to = "/entrar.html"
+  status = 200
+
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+# --- Rutas por estudiante ----------------------------------------------------
+[[redirects]]
+  from = "/:slug/admin"
+  to = "/panel.html"
+  status = 200
+
+[[redirects]]
+  from = "/:slug/tarjeta"
+  to = "/tarjeta.html"
+  status = 200
+
+[[redirects]]
+  from = "/:slug"
+  to = "/perfil.html"
+  status = 200
+
+# --- Cabeceras ---------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

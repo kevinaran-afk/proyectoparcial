@@ -1,0 +1,13 @@
+# Mismas reglas que netlify.toml.
+# Se incluyen aquí también porque en algunos deploys manuales Netlify lee este
+# archivo y no el netlify.toml. Tener ambos no genera conflicto: las reglas son
+# idénticas y siempre gana la primera coincidencia.
+
+/api/*            /.netlify/functions/api/:splat   200!
+/netlify/*        /404.html                        404!
+/netlify.toml     /404.html                        404!
+/entrar           /entrar.html                     200
+/admin            /admin.html                      200
+/:slug/admin      /panel.html                      200
+/:slug/tarjeta    /tarjeta.html                    200
+/:slug            /perfil.html                     200
